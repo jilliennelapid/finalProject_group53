@@ -182,9 +182,9 @@ def plot_spectrogram():
     g_spec.show()
 
 
-def plot_freq():
-    data_in_db = frequency_check()
-    g_freq = plt.figure(3, clear=True)
+def plot_mid_freq():
+    data_in_db = frequency_check(1)
+    g_mid_freq = plt.figure(4, clear=True)
     plt.plot(graph_time, data_in_db, alpha=0.7, color='#004bc6')
     plt.xlabel('Time (s)')
     plt.ylabel('Power (db)')
@@ -215,7 +215,83 @@ def plot_freq():
 
     plt.grid()
 
-    g_freq.show()
+    g_mid_freq.show()
+
+    print(f'The RT60 reverb time at freq {int(target_frequency)}Hz is {round(abs(rt60), 2)} seconds')
+
+
+def plot_low_freq():
+    data_in_db = frequency_check(2)
+    g_low_freq = plt.figure(3, clear=True)
+    plt.plot(graph_time, data_in_db, alpha=0.7, color='#004bc6')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Power (db)')
+
+    # find an index of max value
+    index_of_max = np.argmax(data_in_db)
+    value_of_max = data_in_db[index_of_max]
+    plt.plot(graph_time[index_of_max], data_in_db[index_of_max], 'go')
+
+    # slice the array from a max value
+    sliced_array = data_in_db[index_of_max:]
+    value_of_max_less_5 = value_of_max - 5
+
+    value_of_max_less_5 = find_nearest_value(sliced_array, value_of_max_less_5)
+    index_of_max_less_5 = np.where(data_in_db == value_of_max_less_5)
+    plt.plot(graph_time[index_of_max_less_5], data_in_db[index_of_max_less_5], 'yo')
+
+    # slice array from a max -5db
+    value_of_max_less_25 = value_of_max - 25
+    value_of_max_less_25 = find_nearest_value(sliced_array, value_of_max_less_25)
+    index_of_max_less_25 = np.where(data_in_db == value_of_max_less_25)
+    plt.plot(graph_time[index_of_max_less_25], data_in_db[index_of_max_less_25], 'ro')
+
+    rt20 = (graph_time[index_of_max_less_5] - graph_time[index_of_max_less_25])[0]
+
+    # print
+    rt60 = 3 * rt20
+
+    plt.grid()
+
+    g_low_freq.show()
+
+    print(f'The RT60 reverb time at freq {int(target_frequency)}Hz is {round(abs(rt60), 2)} seconds')
+
+
+def plot_high_freq():
+    data_in_db = frequency_check(3)
+    g_high_freq = plt.figure(5, clear=True)
+    plt.plot(graph_time, data_in_db, alpha=0.7, color='#004bc6')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Power (db)')
+
+    # find an index of max value
+    index_of_max = np.argmax(data_in_db)
+    value_of_max = data_in_db[index_of_max]
+    plt.plot(graph_time[index_of_max], data_in_db[index_of_max], 'go')
+
+    # slice the array from a max value
+    sliced_array = data_in_db[index_of_max:]
+    value_of_max_less_5 = value_of_max - 5
+
+    value_of_max_less_5 = find_nearest_value(sliced_array, value_of_max_less_5)
+    index_of_max_less_5 = np.where(data_in_db == value_of_max_less_5)
+    plt.plot(graph_time[index_of_max_less_5], data_in_db[index_of_max_less_5], 'yo')
+
+    # slice array from a max -5db
+    value_of_max_less_25 = value_of_max - 25
+    value_of_max_less_25 = find_nearest_value(sliced_array, value_of_max_less_25)
+    index_of_max_less_25 = np.where(data_in_db == value_of_max_less_25)
+    plt.plot(graph_time[index_of_max_less_25], data_in_db[index_of_max_less_25], 'ro')
+
+    rt20 = (graph_time[index_of_max_less_5] - graph_time[index_of_max_less_25])[0]
+
+    # print
+    rt60 = 3 * rt20
+
+    plt.grid()
+
+    g_high_freq.show()
 
     print(f'The RT60 reverb time at freq {int(target_frequency)}Hz is {round(abs(rt60), 2)} seconds')
 
@@ -227,10 +303,28 @@ def find_target_frequency(freq):
     return x
 
 
-def frequency_check():
+def find_low_frequency(freq):
+    for x in freq:
+        if x > 250:
+            break
+    return x
+
+
+def find_high_frequency(freq):
+    for x in freq:
+        if x > 5000:
+            break
+    return x
+
+def frequency_check(gate):
     # identify a freq to check
     global target_frequency
-    target_frequency = find_target_frequency(graph_freq)
+    if gate == 1:
+        target_frequency = find_target_frequency(graph_freq)
+    if gate == 2:
+        target_frequency = find_low_frequency(graph_freq)
+    if gate == 3:
+        target_frequency = find_high_frequency(graph_freq)
     index_of_frequency = np.where(graph_freq == target_frequency)[0][0]
     # find sound data
     data_for_frequency = graph_spec[index_of_frequency]
@@ -268,11 +362,13 @@ status_label = tk.Label(root, text="")
 plot_hist_button = tk.Button(master=root, command=plotHist, text="Plot Histogram")
 
 
-plot_graph_button = tk.Button(master=root, command=plot_wav, text="Plot Graph")
+plot_graph_button = tk.Button(master=root, command=plot_wav, text="Plot Waveform")
 
 spectrogram_button = tk.Button(master=root, command=plot_spectrogram, text="Plot Spectrogram")
 
-frequency_button = tk.Button(master=root, command=plot_freq, text="Plot Frequency")
+mid_frequency_button = tk.Button(master=root, command=plot_mid_freq, text="Plot Mid Frequency")
+low_frequency_button = tk.Button(master=root, command=plot_low_freq, text="Plot Low Frequency")
+high_frequency_button = tk.Button(master=root, command=plot_high_freq, text="Plot High Frequency")
 
 # Create text widget and specify size.
 T = Text(root, height=5, width=52)
@@ -280,7 +376,7 @@ T = Text(root, height=5, width=52)
 detail_label = Label(root, text="Details")
 detail_label.config(font=("Courier", 14))
 # Exit Button
-quit_button = Button(root, text="Exit",command=root.destroy)
+quit_button = Button(root, text="Exit", command=root.destroy)
 
 
 # Button Packing Order
@@ -294,7 +390,9 @@ status_label.pack()
 plot_hist_button.pack()
 plot_graph_button.pack()
 spectrogram_button.pack()
-frequency_button.pack()
+low_frequency_button.pack()
+mid_frequency_button.pack()
+high_frequency_button.pack()
 quit_button.pack()
 
 # Run Program
