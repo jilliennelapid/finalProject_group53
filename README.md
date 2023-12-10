@@ -3,7 +3,14 @@
 Our software allows users to work with any audio file in order to graph out the audio data as a histogram, waveform, and spectrogram, as well as a graph of the low, mid, and high frequencies, including a combined frequencies graph.
 
 ---
+## Table of Contents
+* [Necessary Files](#files)
+* Necessary Modules
+* Installation Instructions
+* Usage Instructions
 
+---
+<a name="files"></a>
 ## Necessary Files
 #### `audio_controller.py`
   > Contains the class **Controller** that houses the methods for selecting a file to import, getting the details of the files, and plotting each type of plot with the data.
