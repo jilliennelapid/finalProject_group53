@@ -43,7 +43,7 @@ The modules (and their versions) that are necessary to run the program from are 
 * [tkinter](https://docs.python.org/3/library/tk.html) (*Text*, *Label*, *filedialog*)
 * [wave](https://docs.python.org/3/library/wave.html)
 
-The files `audio_controller.py`, `audio_model.py`, `audio_view.py` must also be imported into `mvc_audio.py` in order for the program to run.
+The files [`audio_controller.py`](https://github.com/jilliennelapid/finalProject_group53/blob/main/audio_controller.py), [`audio_model.py`](https://github.com/jilliennelapid/finalProject_group53/blob/main/audio_model.py), [`audio_view.py`](https://github.com/jilliennelapid/finalProject_group53/blob/main/audio_view.py) must also be imported into [`mvc_audio.py`](https://github.com/jilliennelapid/finalProject_group53/blob/main/mvc_audio.py) in order for the program to run.
 
 ---
 <a name="instructions"></a>
