@@ -176,3 +176,4 @@ class View(tk.Frame):
     def show_error(self):
         self.T.delete("1.0", "end")
         self.T.insert(tk.END, "Error: File not Downloaded")
+ll
