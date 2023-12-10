@@ -1,0 +1,19 @@
+[project]
+name = "DT_ARR_JL_Group53_package"
+version = "0.3.0"
+authors = [
+    { name="David Thompson", email="dthompson2495@floridapoly.edu" },
+    { name="Alejandro Rivera Ramirez", email="ariveraramirez2465@floridapoly.edu"},
+    { name="Jillienne Lapid", email="jlapid2719@floridapoly.edu"}
+]
+description = "View graphs and data for your audio files."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+"Programming Language :: Python :: 3",
+"License :: OSI Approved :: MIT License",
+"Operating System :: OS Independent",
+]
+[project.urls]
+Homepage = "https://github.com/jilliennelapid/finalProject_group53"
+Issues = "https://github.com/jilliennelapid/finalProject_group53/issues"
