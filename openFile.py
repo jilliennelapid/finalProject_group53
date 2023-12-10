@@ -121,12 +121,19 @@ def to_mono():
     result = os.path.exists(new_filename)
     print(result)
 
+    # Creates necessary info for other functions
+    filename = mod_file_name
+    sample_rate, data = wavfile.read(filename)
+    spectrum, freqs, t, im = plt.specgram(data, Fs=sample_rate, NFFT=1024, cmap=plt.get_cmap('autumn_r'))
+    global graph_freq, graph_spec, graph_time
+    graph_freq = freqs
+    graph_spec = spectrum
+    graph_time = t
 
 def print_details():
     new_wav = pydub.AudioSegment.from_file(file=mod_file_name, format="wav")
     T.delete("1.0", "end")
-    T.insert(tk.END, "Time: " + str(len(new_wav)) + "\nChannels " + str(new_wav.channels) + "\nMax Amplitude " + str(new_wav.max))
-
+    T.insert(tk.END, "Time(seconds): " + str(len(new_wav)/1000) + "\nChannels " + str(new_wav.channels) + "\nResonance(Hz): " + str(new_wav.max) + "\nRT60 Difference: " + str(((find_local_rt60(1) + find_local_rt60(2) + find_local_rt60(3))/3) - 0.5))
 
 def plot_wav():
     filename = mod_file_name
@@ -171,10 +178,7 @@ def plot_spectrogram():
     sample_rate, data = wavfile.read(filename)
     g_spec = plt.figure(2, clear=True)
     spectrum, freqs, t, im = plt.specgram(data, Fs=sample_rate, NFFT=1024, cmap=plt.get_cmap('autumn_r'))
-    global graph_freq, graph_spec, graph_time
-    graph_freq = freqs
-    graph_spec = spectrum
-    graph_time = t
+    # space
     cbar = plt.colorbar(im)
     plt.xlabel('Time (s)')
     plt.ylabel('Frequency (Hz)')
@@ -223,7 +227,7 @@ def plot_mid_freq():
 def plot_low_freq():
     data_in_db = frequency_check(2)
     g_low_freq = plt.figure(3, clear=True)
-    plt.plot(graph_time, data_in_db, alpha=0.7, color='#004bc6')
+    plt.plot(graph_time, data_in_db, alpha=0.7, color='#6FEC13')
     plt.xlabel('Time (s)')
     plt.ylabel('Power (db)')
 
@@ -261,7 +265,7 @@ def plot_low_freq():
 def plot_high_freq():
     data_in_db = frequency_check(3)
     g_high_freq = plt.figure(5, clear=True)
-    plt.plot(graph_time, data_in_db, alpha=0.7, color='#004bc6')
+    plt.plot(graph_time, data_in_db, alpha=0.7, color='#F58E11')
     plt.xlabel('Time (s)')
     plt.ylabel('Power (db)')
 
@@ -296,6 +300,23 @@ def plot_high_freq():
     print(f'The RT60 reverb time at freq {int(target_frequency)}Hz is {round(abs(rt60), 2)} seconds')
 
 
+def combined_frequency():
+    data_in_db = frequency_check(3)
+    data_high = frequency_check(3)
+    data_mid = frequency_check(1)
+    data_low = frequency_check(2)
+
+    g_comb_freq = plt.figure(6, clear=True)
+    plt.plot(graph_time, data_high, alpha=0.7, color='#F58E11')
+    plt.plot(graph_time, data_mid, alpha=0.7, color='#004bc6')
+    plt.plot(graph_time, data_low, alpha=0.7, color='#6FEC13')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Power (db)')
+
+    plt.grid()
+
+    g_comb_freq.show()
+
 def find_target_frequency(freq):
     for x in freq:
         if x > 1000:
@@ -315,6 +336,7 @@ def find_high_frequency(freq):
         if x > 5000:
             break
     return x
+
 
 def frequency_check(gate):
     # identify a freq to check
@@ -337,6 +359,32 @@ def find_nearest_value(array, value):
     array = np.asarray(array)
     idx = (np.abs(array - value)).argmin()
     return array[idx]
+
+
+def find_local_rt60(i):
+    data_in_db = frequency_check(i)
+    # find an index of max value
+    index_of_max = np.argmax(data_in_db)
+    value_of_max = data_in_db[index_of_max]
+
+    # slice the array from a max value
+    sliced_array = data_in_db[index_of_max:]
+    value_of_max_less_5 = value_of_max - 5
+
+    value_of_max_less_5 = find_nearest_value(sliced_array, value_of_max_less_5)
+    index_of_max_less_5 = np.where(data_in_db == value_of_max_less_5)
+
+    # slice array from a max -5db
+    value_of_max_less_25 = value_of_max - 25
+    value_of_max_less_25 = find_nearest_value(sliced_array, value_of_max_less_25)
+    index_of_max_less_25 = np.where(data_in_db == value_of_max_less_25)
+
+    rt20 = (graph_time[index_of_max_less_5] - graph_time[index_of_max_less_25])[0]
+
+    # print
+    rt60 = 3 * rt20
+    a = round(abs(rt60), 2)
+    return a
 
 # For testing purposes
 root = tk.Tk()
@@ -369,6 +417,7 @@ spectrogram_button = tk.Button(master=root, command=plot_spectrogram, text="Plot
 mid_frequency_button = tk.Button(master=root, command=plot_mid_freq, text="Plot Mid Frequency")
 low_frequency_button = tk.Button(master=root, command=plot_low_freq, text="Plot Low Frequency")
 high_frequency_button = tk.Button(master=root, command=plot_high_freq, text="Plot High Frequency")
+combined_frequency_button = tk.Button(master=root, command=combined_frequency, text="Plot Combined Frequency")
 
 # Create text widget and specify size.
 T = Text(root, height=5, width=52)
@@ -393,6 +442,7 @@ spectrogram_button.pack()
 low_frequency_button.pack()
 mid_frequency_button.pack()
 high_frequency_button.pack()
+combined_frequency_button.pack()
 quit_button.pack()
 
 # Run Program
