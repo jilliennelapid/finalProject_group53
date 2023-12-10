@@ -5,9 +5,9 @@ Our software allows users to work with any audio file in order to graph out the 
 ---
 ## Table of Contents
 * [Necessary Files](#files)
-* Necessary Modules
-* Installation Instructions
-* Usage Instructions
+* [Necessary Modules](#modules)
+* [Installation Instructions](#instructions)
+* [Usage Instructions](#how-to-use)
 
 ---
 <a name="files"></a>
@@ -31,16 +31,43 @@ Our software allows users to work with any audio file in order to graph out the 
   > Contains the class **App** that executes the tkinter window, creating objects from Controller, Model, and View.
 
 ---
-
+<a name="modules"></a>
 ## Necessary Modules
-The modules (and their versions) that are necessary to run the program from `mvc_audio.py` and are listed in the file `requirements.txt`. A general list of the modules used are listed below:
+The modules (and their versions) that are necessary to run the program from are listed in the file [`requirements.txt`](https://github.com/jilliennelapid/finalProject_group53/edit/main/requirements.txt). A general list of the modules used, as well as links to their documentations, are listed below:
 
-* matplotlib (*pyplot*)
-* numpy
-* os
-* pydub (*AudioSegment*)
-* scipy.io (*wavfile*)
-* tkinter (*Text*, *Label*, *filedialog*)
-* wave
+* [matplotlib](https://matplotlib.org/stable/index.html) (*pyplot*)
+* [numpy](https://numpy.org/doc/)
+* [os](https://docs.python.org/3/library/os.html)
+* [pydub](https://github.com/jiaaro/pydub) (*AudioSegment*)
+* [scipy.io](https://docs.scipy.org/doc/) (*wavfile*)
+* [tkinter](https://docs.python.org/3/library/tk.html) (*Text*, *Label*, *filedialog*)
+* [wave](https://docs.python.org/3/library/wave.html)
 
 The files `audio_controller.py`, `audio_model.py`, `audio_view.py` must also be imported into `mvc_audio.py` in order for the program to run.
+
+---
+<a name="instructions"></a>
+## Installation Instructions
+1) Attain the files `audio_controller.py`, `audio_model.py`, `audio_view.py`, and `mvc_audio.py` via forking or downloading the specific files to a local repository.
+2) Double check the [`requirements.txt`](https://github.com/jilliennelapid/finalProject_group53/edit/main/requirements.txt) file for the modules necessary and which versions were used for this program.
+3) Open the repository in a coding IDE that can run Python, such as Pycharm.
+4) Run the program via the Run button OR use the terminal/command line to access your repository and run the file `mvc_audio.py`.
+
+---
+<a name="how-to-use"></a>
+## Usage Instructions
+* Importing a audio file
+  > After opening the program, press the `Select File` button in order to open your Finder/File Explorer. Select the audio file you wish to import into the software. Any audio file type is allowed (.mp3, .mp4, .wav, etc.).
+  
+  > After selecting the file, ensure that you press `Download` for the software to convert the file to .wav and store it for use in the program.
+
+* Seeing statistics (details) of the file
+  > After a file has been downloaded, press the `Details` button to see statistics such as Time, Channels, Resonance, and RT60 Difference.
+
+* Displaying a graph of the audio data
+  > After a file has been downloaded, you can select any of the "Plot" buttons to plot the data, such as `Plot Spectrogram` or `Plot Combined Frequency`. This will cause a separate window to appear with the desired graph. Closing the separate plot window will not close the program.
+
+  > Multiple graphs can be opened at the same time.
+  
+* Closing the program
+  > To close the program at any time make use of the `X` button built into the window or the `Exit` button at the top right of the program.
