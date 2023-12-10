@@ -93,4 +93,3 @@ class Controller:
             self.view.plot_hist(data)
         except TypeError as e:
             self.view.show_error()
-ll
