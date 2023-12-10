@@ -3,6 +3,11 @@ import pydub
 from pydub import AudioSegment
 import wave
 import ffmpeg
+from scipy.io import wavfile
+import scipy.io
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class ModifyFile:
 	def __init__(self, filename):
@@ -31,9 +36,24 @@ class ModifyFile:
 		# Export the wav file without metadata.
 		audio.export(self.filename, format="wav", tags={})
 
-	def audio_duration(self):
-		audio = AudioSegment.from_file(self.filename, format="wav")
-		return audio.duration_seconds
+	def audio_statistics(self):
+		samplerate, data = wavfile.read(self.filename)
+		# Dictionary of the relevant statistics
+		statistics_dict = {'Channels': len(data.shape), 'Sample Rate': samplerate, 'Length': data.shape[0] / samplerate}
+		print("Number of Channels: ", statistics_dict['Channels'])
+		print("Sample Rate = ", statistics_dict['Sample Rate'], "Hz")
+		print("Length = ", statistics_dict['Length'], "s")
+		return statistics_dict
+
+	def plot_wav(self, dictionary):
+		samplerate, data = wavfile.read(self.filename)
+		time = np.linspace(0., dictionary['Length'], data.shape[0])
+		plt.plot(time, data[:], label="Visualized Audio")
+		plt.legend()
+		plt.xlabel("Time [s]")
+		plt.ylabel("Amplitude")
+		plt.show()
+
 
 def process_file(filename):
 	# Faster way to do all the modifications all at once (convert_to_wave has to be the first modification)
@@ -41,8 +61,7 @@ def process_file(filename):
 	input_file.convert_to_wave()
 	input_file.to_mono()
 	input_file.remove_metadata()
-	print("duration:", str(input_file.audio_duration()))
-
+	input_file.plot_wav(input_file.audio_statistics())
 
 
 # For testing purposes
