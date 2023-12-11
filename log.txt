@@ -1,0 +1,185 @@
+commit 9a7c4d225c1ca5f997cdf631ef9188908a3394b6
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 20:50:39 2023 -0500
+
+    Updated README.md
+
+commit 75eaabb2de1c5d1ca0d1b8d3e4e059465dc42e9b
+Author: ARiveraRamirez <151590269+ARiveraRamirez@users.noreply.github.com>
+Date:   Sun Dec 10 20:47:51 2023 -0500
+
+    Updated README.md with more detailed instructions of how to run the program through command prompt.
+
+commit c62411fd954374166beac1d8b1499d6addc0b292
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 20:11:11 2023 -0500
+
+    Updated README.md
+
+commit ed30934328be9900874e0d45e69a93cf0d375407
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 20:05:24 2023 -0500
+
+    Updated CHANGELOG.md
+
+commit adce6779ba81ff28f340e6ba7de03ff552c7efc4
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 18:58:15 2023 -0500
+
+    Deleted setup.cfg, no longer needed.
+
+commit 4f4039ec6d9312ed668349244a8764ab60bd2b03
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 18:43:34 2023 -0500
+
+    Updated README.md
+
+commit 98f7d60cf98c8cb28bfcc9cf2e86ba00350b7978
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 18:41:27 2023 -0500
+
+    Updated README.md
+
+commit 29925dcc286deb82b0a9ea440123e0a5fb431567
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 18:34:51 2023 -0500
+
+    Updated README.md
+
+commit 5bdc0f5a56df90ecebea39aa8cbd6d88a6e4d04b
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 18:05:50 2023 -0500
+
+    Testing linking to different parts of the README.md
+
+commit 333a08c449648767db2ab5f53d65125819cce1eb
+Author: ARiveraRamirez <riveraalejandro2022@gmail.com>
+Date:   Sun Dec 10 15:45:43 2023 -0500
+
+    Used pip freeze to add all the requirements to requirements.txt
+
+commit 56abaad926ddafd42e7075b91b5e87e3c08edcc4
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 15:34:39 2023 -0500
+
+    Updated README.md
+
+commit a40f0d8e6e52aef86dcf5bb7acb8bc8b45141021
+Author: ARiveraRamirez <riveraalejandro2022@gmail.com>
+Date:   Sun Dec 10 15:16:51 2023 -0500
+
+    Added pyproject.toml file
+
+commit 6dfe50852cdac3c8673ba1918b1addd3a3db46c7
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 14:19:58 2023 -0500
+
+    Updated CHANGELOG.md
+
+commit b7a233eb14b62c0a04784fbbc6f268de0618c165
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 14:16:14 2023 -0500
+
+    Updated CHANGELOG.md up to 2023/12/10
+
+commit 7fef21858e599251cc9729d3e170353cb7d33be6
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:39:05 2023 -0500
+
+    Pushing mvc_audio.py
+
+commit 7b49bd4cf358a280d9e802c1e04af0d4b88dea29
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:38:17 2023 -0500
+
+    Pushing audio_view.py
+
+commit 5f7920deacd654f3f77b563032ae489605a38089
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:37:50 2023 -0500
+
+    Pushing audio_view.py
+
+commit e26beeda5b605436f3d19ee109ddfe8d951208c7
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:37:24 2023 -0500
+
+    Pushing audio_controller.py
+
+commit 77d67db64d4137c3962f3412825c0bcd7cd2250b
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:36:53 2023 -0500
+
+    Pushing audio_controller.py
+
+commit 3536745a2bb8c02f317869c8bdc1c02973afad8d
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:35:35 2023 -0500
+
+    Pushing audio_controller.py
+
+commit ab01977c9dfec778825e28738edf928c572beec2
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:34:48 2023 -0500
+
+    Pushing audio_model.py
+
+commit 09023f4c7aeb91aed8b10a8c849797ddb53b9154
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:33:05 2023 -0500
+
+    Pushing audio_controller.py containing functionality for importing in audio file, manipulating the file, and returning statistics to the user.
+
+commit 9380ea72d4028fe669f956528fa54f22cf8192dc
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:30:51 2023 -0500
+
+    Pushing audio_view.py containing the methods for creating plots.
+
+commit 62add595db440749291e9591dc748ea5e2ef6b79
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Sun Dec 10 13:26:47 2023 -0500
+
+    Removed beta file, openFile.py
+
+commit fca7bbbcb98fa2c27ee07abed4206ce568127876
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Thu Dec 7 12:39:42 2023 -0500
+
+    Combined our recent files containing the methods, tkinter gui, and graphing methods.
+
+commit a6bae1cecb72efdfee2cc7963570e2bac4cdff23
+Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
+Date:   Tue Dec 5 23:41:25 2023 -0500
+
+    Updated CHANGELOG.md with some current progress and changes.
+
+commit 6eef334667ce05628088e263ab85942cdd000806
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Tue Dec 5 22:36:29 2023 -0500
+
+    Created a new class from the functions in our individual branches.
+
+commit 859d84428f31f6489246623fa4088c0588fe4fd4
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Fri Dec 1 20:52:22 2023 -0500
+
+    Adding requirements.txt file meant to list the modules used, setup.cfg which is the configuration file for setuptools.
+
+commit 34a2b6b5c0019644d8378679cdc707be983357c1
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Fri Dec 1 20:31:07 2023 -0500
+
+    Added info to both files.
+
+commit 9b5bdc1611c779cada4411b5407bad4dc94de056
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Fri Dec 1 20:26:30 2023 -0500
+
+    Adding the CHANGELOG.md to record git activity and README.md for the description of the project.
+
+commit 5b34433070e59495e7fb6b872aeb10f7d66c56ac
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Fri Dec 1 20:23:11 2023 -0500
+
+    Pushing file openFile.py intended to have functionality to open audio files and attain data from them.
