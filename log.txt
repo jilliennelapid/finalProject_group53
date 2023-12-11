@@ -1,3 +1,15 @@
+commit f86ef6fb795817720fc2b617c58ee82ce2a8a437
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Sun Dec 10 22:12:54 2023 -0500
+
+    Added axes labels to the histogram plot.
+
+commit dffc828ac20d7ee53832420d4c99503043da0a1a
+Author: Jillienne Lapid <jillienne.lapid@gmail.com>
+Date:   Sun Dec 10 21:03:10 2023 -0500
+
+    Sending audio_file dr to main branch.
+
 commit 9a7c4d225c1ca5f997cdf631ef9188908a3394b6
 Author: Jillienne Lapid <105609817+jilliennelapid@users.noreply.github.com>
 Date:   Sun Dec 10 20:50:39 2023 -0500
