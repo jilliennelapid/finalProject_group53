@@ -84,6 +84,8 @@ class View(tk.Frame):
             h_comb_freq = plt.figure("Histogram", clear=True)
             plt.hist(c, bins='auto')
             plt.title("Histogram")
+            plt.xlabel("Amplitude [HZ]")
+            plt.ylabel("Frequency of Amplitude Value")
             plt.grid()
             h_comb_freq.show()
 
