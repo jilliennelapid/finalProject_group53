@@ -6,7 +6,7 @@ Our software allows users to work with any audio file in order to graph out the 
 ## Table of Contents
 * [Necessary Files](#files)
 * [Necessary Modules](#modules)
-* [Installation Instructions](#instructions)
+* [Installation and Running Instructions](#instructions)
 * [Usage Instructions](#how-to-use)
 
 ---
@@ -47,17 +47,21 @@ The files [`audio_controller.py`](https://github.com/jilliennelapid/finalProject
 
 ---
 <a name="instructions"></a>
-## Installation Instructions
-1) Attain the files `audio_controller.py`, `audio_model.py`, `audio_view.py`, and `mvc_audio.py` via forking or downloading the specific files to a local repository.
+## Installation and Running Instructions
+1) Attain the files `audio_controller.py`, `audio_model.py`, `audio_view.py`, and `mvc_audio.py` via forking
+
+    **OR** by downloading the specified files to a local repository.
 2) Double check the `requirements.txt` file for the modules necessary and which versions were used for this program.
 3) Open the repository in a coding IDE that can run Python, such as Pycharm.
-4) Run the program via the Run button OR use the terminal/command line to access your repository and run the file `mvc_audio.py`.
+4) Run the program via the Run button
+
+   **OR** use the command line/terminal to access your repository with the files and run the file `mvc_audio.py` with the command `$ python3 mvc_audio.py`.
 
 ---
 <a name="how-to-use"></a>
 ## Usage Instructions
 * Importing a audio file
-  > After opening the program, press the `Select File` button in order to open your Finder/File Explorer. Select the audio file you wish to import into the software. Any audio file type is allowed (.mp3, .mp4, .wav, etc.).
+  > After opening the program, press the `Select File` button in order to open your File Explorer/Finder. Select the audio file you wish to import into the software. Any audio file type is allowed (.mp3, .mp4, .wav, etc.).
   
   > After selecting the file, ensure that you press `Download` for the software to convert the file to .wav and store it for use in the program.
 
