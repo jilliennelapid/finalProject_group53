@@ -55,8 +55,12 @@ The files [`audio_controller.py`](https://github.com/jilliennelapid/finalProject
 3) Open the repository in a coding IDE that can run Python, such as Pycharm.
 4) Run the program via the Run button
 
-   **OR** use the command line/terminal to access your repository with the files and run the file `mvc_audio.py` with the command `$ python3 mvc_audio.py`.
-
+   **OR** use the command line/terminal to access your repository with the files and run the file `mvc_audio.py`.
+1) Open up Command Prompt and use `cd` to get into the directory/folder where you downloaded the source code.
+2) Use `python -m venv .venv` to create a virtual environment if you don't want to download all the Python modules globally on your computer. (Syntax may vary for different terminals or operating systems)
+3) Use `.\.venv\Scripts\activate` to activate the virtual environment. (Syntax may vary for different terminals or operating systems)
+4) Install all the modules to the virtual environment with `pip install -r requirements.txt`.
+5) Run the program with `python mvc_audio.py` or `python3 mvc_audio.py`
 ---
 <a name="how-to-use"></a>
 ## Usage Instructions
