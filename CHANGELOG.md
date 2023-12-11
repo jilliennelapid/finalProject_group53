@@ -1,5 +1,5 @@
 # Change Log
-All notable changes to this project will be documented in this file.
+All notable changes and versions of this project will be documented in this file. Working program added in Version [1.0].
 
 ---
 
@@ -9,6 +9,8 @@ Created files audio_controller.py, audio_model.py, audio_view.py, and mvc_audio.
 
 ### Changed
 Removed beta file openFile.py from the main branch as the newly formatted MVC files replaced the file.
+Removed setup.cfg; pyproject.toml replaces this file.
+Updated the CHANGELOG.md, README.md, and requirements.txt with current state of project.
 
 ### Fixed
 Finalized all methods for graphing, the tkinter GUI code, all methods for working with the audio files.
